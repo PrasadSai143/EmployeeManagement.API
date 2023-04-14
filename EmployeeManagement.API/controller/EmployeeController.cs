@@ -20,12 +20,14 @@ namespace StudentManagement.API.controller
         {
             this._employeeService = employeeService;
         }
+
         [HttpGet("getEmployees")]
         public IActionResult GetEmployees()
         {
             var data = _employeeService.GetEmployees();
             return Ok(data);
         }
+
         [HttpGet("getEmployeeById/{id}")]
         public IActionResult GetEmployeeById(int id)
         {
