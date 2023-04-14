@@ -29,9 +29,9 @@ namespace StudentManagement.API.controller
         }
 
         [HttpGet("getEmployeeById/{id}")]
-        public IActionResult GetEmployeeById(int id)
+        public IActionResult GetEmployeeById(Guid id)
         {
-            var data = _employeeService.GetEmployees();
+            var data = _employeeService.GetEmployee(id);
             return Ok(data);
         }
     }

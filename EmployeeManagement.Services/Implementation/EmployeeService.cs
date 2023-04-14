@@ -15,12 +15,12 @@ namespace EmployeeManagement.Services.Implementation
         {
             this._employeeRepository = employeeRepository;
         }
-        public Employee DeleteEmployee(int id)
+        public Employee DeleteEmployee(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public Employee GetEmployee(int empId)
+        public Employee GetEmployee(Guid empId)
         {
             return _employeeRepository.GetEmployee(empId);
         }

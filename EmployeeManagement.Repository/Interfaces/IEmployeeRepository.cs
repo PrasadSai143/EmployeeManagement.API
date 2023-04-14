@@ -8,9 +8,9 @@ namespace EmployeeManagement.Repository.Interfaces
     public interface IEmployeeRepository
     {
         public IEnumerable<Employee> GetEmployees();
-        public Employee GetEmployee(int empId);
+        public Employee GetEmployee(Guid empId);
         public Employee SaveEmployee(Employee employee);
         public Employee UpdateEmployee(Employee employee);
-        public Employee DeleteEmployee(int id);
+        public Employee DeleteEmployee(Guid id);
     }
 }

@@ -15,12 +15,12 @@ namespace EmployeeManagement.DAL.Implementation
         {
             this._employeeDBContext = employeeDBContext;
         }
-        public Employee DeleteEmployee(int id)
+        public Employee DeleteEmployee(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public Employee GetEmployee(int empId)
+        public Employee GetEmployee(Guid empId)
         {
             return _employeeDBContext.Employees.Find(empId);
         }
