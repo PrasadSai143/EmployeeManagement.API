@@ -1,19 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.API", "EmployeeManagement.API\EmployeeManagement.API.csproj", "{437405C4-E67A-42E6-A588-7C78D79F0DF8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Models", "EmployeeManagement.Models\EmployeeManagement.Models.csproj", "{E17C0662-87EE-4DD9-8779-C665821650E3}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Services", "EmployeeManagement.Services\EmployeeManagement.Services.csproj", "{FF13AE05-DA85-4C41-A996-2D617D63B546}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Repository", "EmployeeManagement.Repository\EmployeeManagement.Repository.csproj", "{50B2B7B2-2409-4BB0-8919-5E432B423276}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.DAL", "EmployeeManagement.DAL\EmployeeManagement.DAL.csproj", "{211D305F-1D78-4268-B1F0-ECFBB7F1B1AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagement.Context", "EmployeeManagement.Context\EmployeeManagement.Context.csproj", "{490EC35C-704B-4F64-8D10-857CA84EB2AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement.Context", "EmployeeManagement.Context\EmployeeManagement.Context.csproj", "{490EC35C-704B-4F64-8D10-857CA84EB2AF}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{EAFD5E55-0F7E-4A76-9785-BBA4C236B75F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,18 +21,6 @@ Global
 		{437405C4-E67A-42E6-A588-7C78D79F0DF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{437405C4-E67A-42E6-A588-7C78D79F0DF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{437405C4-E67A-42E6-A588-7C78D79F0DF8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E17C0662-87EE-4DD9-8779-C665821650E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E17C0662-87EE-4DD9-8779-C665821650E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E17C0662-87EE-4DD9-8779-C665821650E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E17C0662-87EE-4DD9-8779-C665821650E3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF13AE05-DA85-4C41-A996-2D617D63B546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF13AE05-DA85-4C41-A996-2D617D63B546}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF13AE05-DA85-4C41-A996-2D617D63B546}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF13AE05-DA85-4C41-A996-2D617D63B546}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50B2B7B2-2409-4BB0-8919-5E432B423276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50B2B7B2-2409-4BB0-8919-5E432B423276}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50B2B7B2-2409-4BB0-8919-5E432B423276}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50B2B7B2-2409-4BB0-8919-5E432B423276}.Release|Any CPU.Build.0 = Release|Any CPU
 		{211D305F-1D78-4268-B1F0-ECFBB7F1B1AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{211D305F-1D78-4268-B1F0-ECFBB7F1B1AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{211D305F-1D78-4268-B1F0-ECFBB7F1B1AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +29,10 @@ Global
 		{490EC35C-704B-4F64-8D10-857CA84EB2AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{490EC35C-704B-4F64-8D10-857CA84EB2AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{490EC35C-704B-4F64-8D10-857CA84EB2AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAFD5E55-0F7E-4A76-9785-BBA4C236B75F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAFD5E55-0F7E-4A76-9785-BBA4C236B75F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAFD5E55-0F7E-4A76-9785-BBA4C236B75F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAFD5E55-0F7E-4A76-9785-BBA4C236B75F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

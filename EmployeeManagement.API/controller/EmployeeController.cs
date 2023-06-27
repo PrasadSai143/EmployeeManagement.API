@@ -1,4 +1,5 @@
-﻿using EmployeeManagement.Services.Interfaces;
+﻿using EmployeeManagement;
+using EmployeeManagement.DAL.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -14,17 +15,17 @@ namespace StudentManagement.API.controller
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        private readonly IEmployeeService _employeeService;
+        private readonly IEmployeeDAL _employeeService;
 
-        public EmployeeController(IEmployeeService employeeService)
+        public EmployeeController(IEmployeeDAL employeeService)
         {
             this._employeeService = employeeService;
         }
 
-        [HttpGet("getEmployees")]
-        public IActionResult GetEmployees()
+        [HttpGet("getEmployees/{gender}")]
+        public IActionResult GetEmployees(string gender)
         {
-            var data = _employeeService.GetEmployees();
+            var data = _employeeService.GetEmployees(gender);
             return Ok(data);
         }
 
@@ -33,6 +34,41 @@ namespace StudentManagement.API.controller
         {
             var data = _employeeService.GetEmployee(id);
             return Ok(data);
+        }
+
+        [HttpPost("saveemployee")]
+        public IActionResult SaveEmployee(Employee employee)
+        {
+            var emp = _employeeService.SaveEmployee(employee);
+            return Ok(emp); 
+        }
+
+        [HttpGet("getGenderByCount")]
+        public IActionResult GetGenderByCount()
+        {
+            var emp = _employeeService.GetGenderCount();
+            return Ok(emp);
+        }  
+        
+        [HttpGet("getYearCount")]
+        public IActionResult GetYearCount()
+        {
+            var emp = _employeeService.GetYearCount();
+            return Ok(emp);
+        }
+
+        [HttpGet("getDepartments")]
+        public IActionResult GetDepartments()
+        {
+            var departments = _employeeService.GetDepartments();
+            return Ok(departments);
+        }
+
+        [HttpGet("getAllEmployees")]
+        public IActionResult GetEmployees()
+        {
+            var employees = _employeeService.GetEmployees();
+            return Ok(employees);
         }
     }
 }

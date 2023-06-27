@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EmployeeManagement.Context\EmployeeManagement.Context.csproj" />
-    <ProjectReference Include="..\EmployeeManagement.Models\EmployeeManagement.Models.csproj" />
   </ItemGroup>
 
 </Project>

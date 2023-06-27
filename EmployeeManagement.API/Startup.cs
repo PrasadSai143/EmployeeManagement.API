@@ -2,10 +2,6 @@ using EmployeeManagement.API.SwaggerFilter;
 using EmployeeManagement.Context;
 using EmployeeManagement.DAL.Implementation;
 using EmployeeManagement.DAL.Interfaces;
-using EmployeeManagement.Repository.Implementation;
-using EmployeeManagement.Repository.Interfaces;
-using EmployeeManagement.Services.Implementation;
-using EmployeeManagement.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -38,9 +34,13 @@ namespace StudentManagement.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var dbHost = Environment.GetEnvironmentVariable("DB_HOST");
+            var dbName = Environment.GetEnvironmentVariable("DB_NAME");
+            var dbPassword = Environment.GetEnvironmentVariable("DB_SA_PASSWORD");
+            var connectionString = $"Data Source={dbHost};Initial Catalog={dbName};User Id = sa; Password = {dbPassword}";
             services.AddDbContext<EmployeeDBContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString"));
+                options.UseSqlServer(connectionString);
             });
             services.AddControllers()
                     .AddNewtonsoftJson(options =>
@@ -49,6 +49,11 @@ namespace StudentManagement.API
                         options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                         options.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
                     });
+
+            services.AddCors(action => action.AddPolicy("mypolicy", policy =>
+            {
+                policy.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin();
+            }));
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddSwaggerGen(options =>
             {
@@ -98,8 +103,6 @@ namespace StudentManagement.API
                 options.GroupNameFormat = "'v'VVV";
                 options.SubstituteApiVersionInUrl = true;
             });
-            services.AddScoped<IEmployeeService, EmployeeService>();
-            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IEmployeeDAL, EmployeeDAL>();
         }
 
@@ -132,6 +135,7 @@ namespace StudentManagement.API
             });
 
             app.UseRouting();
+            app.UseCors("mypolicy");
             app.Use(async (context, next) =>
             {
                 context.Request.EnableBuffering();

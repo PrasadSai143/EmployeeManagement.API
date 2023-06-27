@@ -1,0 +1,31 @@
+version: '3.4'
+
+networks:
+  employeeapp:
+services:
+  demoappdb:
+    container_name: app-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - 8002:1443 
+    environment:
+       - ACCEPT_EULA=Y
+       - SQL_SA_PASSWORD=123
+    networks:
+       - employeeapp
+  employeemanagement.api:
+    container_name: employee-api
+    image: ${DOCKER_REGISTRY-}employeemanagementapi
+    build:
+      context: .
+      dockerfile: EmployeeManagement.API/Dockerfile
+    ports:
+      - 8001:80
+    depends_on:
+      - demoappdb
+    environment:
+      - DB_HOST=demoappdb
+      - DB_NAME=employeedb
+      - DB_SA_PASSWORD=123
+    networks:
+       - employeeapp
